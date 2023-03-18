@@ -1,25 +1,58 @@
-import logo from './logo.svg';
-import './App.css';
+import Footer from './components/Footer'
+import Card from './components/Card'
+import {useState} from 'react'
+
+
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+
+
+const [page,setPage]=useState(0)
+const [card,setCard]=useState([
+  {
+    imgUrl:"./images/image-tanya.jpg",
+    about:'“ I’ve been interested in coding for a while but never taken the jump, until now. I couldn’t recommend this course enough. I’m now in the job of my dreams and so excited about the future. ”',
+    name:'Tanya Sinclair',
+    profession:'UX Engineer'
+
+  },
+ {
+    imgUrl:"./images/image-john.jpg",
+    about:'“ If you want to lay the best foundation possible I’d recommend taking this course. The depth the instructors go into is incredible. I now feel so confident about starting up as a professional developer.',
+    name:'John Tarkpor',
+    profession:'Junior Front-end Developer'
+
+  },
+
+  ])
+
+const pageUp=()=>
+{
+if(page==card.length-1)
+  setPage(0)
+else setPage(page+1);
+
+
 }
+
+const pageDown=()=>
+{
+if(page==0)
+  setPage(card.length-1)
+else setPage(page-1);
+
+
+}
+
+  return (
+<>
+<Card card={card} page={page} pageUp={pageUp} pageDown={pageDown}/>
+<Footer/>
+</>
+  );}
+
 
 export default App;
