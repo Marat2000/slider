@@ -11,7 +11,7 @@ const Card=(props)=>{
 
 <div className='container' key={item.imgUrl}>
 <div className='imgController'>
-<img className="mainImg" src={item.imgUrl}/>
+<img className="mainImg" src={item.imgUrl} alt="mainImg"/>
  <Controller pageUp={props.pageUp} pageDown={props.pageDown}/>
 </div>
 <div className='text'>
