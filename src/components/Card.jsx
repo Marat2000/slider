@@ -1,21 +1,22 @@
 import Controller from './Controller'
+import {useState} from 'react'
 
 const Card=(props)=>{
 
 
-	return(<>
+	 
+	return(<div style={{display:'flex' , overflow:'hidden' }} >
+
+{(props.card).map((item)=>{return(
 
 
-{(props.card.filter(el=>props.card.indexOf(el)==props.page)).map((item)=>{return(
-
-
-<div className='container' key={item.imgUrl}>
+<div className={props.card.indexOf(item)==props.page ?'container opacity1':'container opacity0'}  key={item.imgUrl}>
 <div className='imgController'>
-<img className="mainImg" src={item.imgUrl} alt="mainImg"/>
+<img className="mainImg" src={item.imgUrl}  alt="mainImg" />
  <Controller pageUp={props.pageUp} pageDown={props.pageDown}/>
 </div>
 <div className='text'>
-  <p className="about">{item.about}</p>
+  <p className={props.card.indexOf(item)==props.page ?"about text1":props.left? "about text0left":"about text0right"}>{item.about}</p>
 
 <div className="user">
   <span className='name'>{item.name}</span>
@@ -28,7 +29,9 @@ const Card=(props)=>{
 
 }
 
-</>)}
+
+
+</div>)}
 
 
 export default Card
