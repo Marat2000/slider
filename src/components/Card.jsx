@@ -1,22 +1,24 @@
 import Controller from './Controller'
-import {useState} from 'react'
 
 const Card=(props)=>{
 
 
 	 
-	return(<div style={{display:'flex' , overflow:'hidden' }} >
+	return(
+<div style={{ overflow:'hidden' }}>
+	<Controller pageUp={props.pageUp} pageDown={props.pageDown}/>
+		<div  style={{ display:'flex', transition:'.5s', transform:`translate(${props.page*(-100)}%)` }}>
+
 
 {(props.card).map((item)=>{return(
 
 
-<div className={props.card.indexOf(item)==props.page ?'container opacity1':'container opacity0'}  key={item.imgUrl}>
-<div className='imgController'>
+<div className={ props.card.indexOf(item)==props.page ?'container opacity1':'container opacity0'} key={item.imgUrl}>
 <img className="mainImg" src={item.imgUrl}  alt="mainImg" />
- <Controller pageUp={props.pageUp} pageDown={props.pageDown}/>
-</div>
+
+
 <div className='text'>
-  <p className={props.card.indexOf(item)==props.page ?"about text1":props.left? "about text0left":"about text0right"}>{item.about}</p>
+  <p className='about'>{item.about}</p>
 
 <div className="user">
   <span className='name'>{item.name}</span>
@@ -24,12 +26,15 @@ const Card=(props)=>{
 </div>
 </div>
 </div>
+
  
 )})
 
 }
 
 
+</div>
+ 
 
 </div>)}
 

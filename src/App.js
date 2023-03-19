@@ -11,7 +11,6 @@ function App() {
 
 
 const [page,setPage]=useState(0)
-const [left,setLeft]=useState(false)
 const [card,setCard]=useState([
   {
     imgUrl:"./images/image-tanya.jpg",
@@ -27,6 +26,17 @@ const [card,setCard]=useState([
     profession:'Junior Front-end Developer'
 
   },
+{
+    imgUrl:"./images/image-lorem.jpg",
+    about:'“ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ”',
+    name:'Lorem Ipsum',
+    profession:'Front-end Developer',
+    author: 'Konstantin Mishchenko',
+    authorLink: 'https://www.pexels.com/ru-ru/photo/1926769/'
+
+  },
+
+
 
   ])
 
@@ -36,29 +46,23 @@ const sleep=(ms)=>
   return new Promise (resolve =>setTimeout(resolve,ms));
 }
 
-const pageUp=async()=>
+const pageDown=()=>
 {
-await setLeft(true)
-await sleep(350)
 
 if(page==card.length-1)
- await setPage(0)
+  setPage(0)
 
 else 
- await setPage(page+1);
-
+  setPage(page+1);
 }
 
-const pageDown=async()=>
+const pageUp=()=>
 {
 
-await setLeft(false)
-await sleep(350)
 if(page==0)
-  await setPage(card.length-1)
+   setPage(card.length-1)
 else 
-  await setPage(page-1);
-
+   setPage(page-1);
 
 }
 
@@ -67,7 +71,7 @@ else
 
   return (
 <>
-<Card card={card} page={page} pageUp={pageUp} pageDown={pageDown}  left={left} />
+<Card card={card} page={page} pageUp={pageUp} pageDown={pageDown}   />
 <Footer/>
 </>
   );}
