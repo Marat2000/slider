@@ -39,7 +39,7 @@ const sleep=(ms)=>
 const pageUp=async()=>
 {
 await setLeft(true)
-await sleep(250)
+await sleep(350)
 
 if(page==card.length-1)
  await setPage(0)
@@ -53,7 +53,7 @@ const pageDown=async()=>
 {
 
 await setLeft(false)
-await sleep(250)
+await sleep(350)
 if(page==0)
   await setPage(card.length-1)
 else 
