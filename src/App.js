@@ -41,10 +41,6 @@ const [card,setCard]=useState([
   ])
 
 
-const sleep=(ms)=>
-{
-  return new Promise (resolve =>setTimeout(resolve,ms));
-}
 
 const pageDown=()=>
 {
