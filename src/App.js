@@ -1,6 +1,6 @@
 import Footer from './components/Footer'
 import Card from './components/Card'
-import {useState,useEffect} from 'react'
+import {useState} from 'react'
 
 
 
@@ -63,7 +63,6 @@ else
 }
 
 
-useEffect(()=>{setLeft(left)},[page,pageUp,pageDown, sleep])
 
 
   return (
